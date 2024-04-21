@@ -1,7 +1,68 @@
 // Variables
 
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
+:root,
+body.theme-light {
+    --background-color: #EEEEEE;
+    --background-light: #d2dfdf;
+    --background-overlay: transparent;
+
+    --background-card: #156064;
+    --background-card-alt: #15606430;
+
+    --primary-color: #EEEEEE;
+    --accent-color: #156064;
+
+    --primary-light: #EEEEEE40;
+    --accent-light: #15606430;
+
+    --primary-text: #EEEEEE;
+    --accent-text: #156064;
+
+    --primary-btn-text: #EEEEEE;
+    --accent-btn-text: #156064;
+}
+
+body.theme-dark {
+    --background-color: #121212;
+    --background-light: #151a1a;
+    --background-overlay: transparent;
+
+    --background-card: #0d3a3c;
+    --background-card-alt: #0d3a3c30;
+
+    --primary-color: #d2dfdf;
+    --accent-color: #0d3a3c;
+
+    --primary-light: #EEEEEE40;
+    --accent-light: #15606430;
+
+    --primary-text: #d2dfdf;
+    --accent-text: #d2dfdf;
+
+    --primary-btn-text: #d2dfdf;
+    --accent-btn-text: #0d3a3c;
+
+}
+
+$primary-color: var(--primary-color);
+$accent-color: var(--accent-color);
+
+$background-color: var(--background-color);
+$background-light: var(--background-light);
+$background-overlay: var(--background-overlay);
+
+$background-card: var(--background-card);
+$background-card-alt: var(--background-card-alt);
+
+$primary-light: var(--primary-light);
+$accent-light: var(--accent-light);
+
+$primary-text: var(--primary-text);
+$accent-text: var(--accent-text);
+
+$primary-btn-text: var(--primary-btn-text);
+$accent-btn-text: var(--accent-btn-text);
+
+
+
 $font-family: 'Montserrat', sans-serif;
-$base-font-size: 16px;
-$spacing-unit: 8px;
