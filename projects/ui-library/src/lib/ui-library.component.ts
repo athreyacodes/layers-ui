@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-ui-library',
-  standalone: true,
   imports: [],
   template: `
     <p>

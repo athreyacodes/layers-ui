@@ -11,7 +11,7 @@ describe('UiLibraryComponent', () => {
       imports: [UiLibraryComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UiLibraryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
