@@ -1,0 +1,38 @@
+// Spacing utilities
+$spacings: (0, 1, 2, 3, 4, 5);
+
+@each $i in $spacings {
+  .m-#{$i} { margin: var(--space-#{$i}); }
+  .p-#{$i} { padding: var(--space-#{$i}); }
+
+  .mt-#{$i} { margin-top: var(--space-#{$i}); }
+  .mr-#{$i} { margin-right: var(--space-#{$i}); }
+  .mb-#{$i} { margin-bottom: var(--space-#{$i}); }
+  .ml-#{$i} { margin-left: var(--space-#{$i}); }
+
+  .pt-#{$i} { padding-top: var(--space-#{$i}); }
+  .pr-#{$i} { padding-right: var(--space-#{$i}); }
+  .pb-#{$i} { padding-bottom: var(--space-#{$i}); }
+  .pl-#{$i} { padding-left: var(--space-#{$i}); }
+}
+
+// Display
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+.d-none { display: none; }
+
+// Flexbox
+.flex-row { flex-direction: row; }
+.flex-col { flex-direction: column; }
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.items-start { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end { align-items: flex-end; }
+
+// Sizing
+.w-full { width: 100%; }
+.h-full { height: 100%; }

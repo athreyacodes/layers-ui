@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Demo logs, temp files
+*.log
+*.tmp
+
+# IDE / Editor files
+.vscode/
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# npm debug / lock files (optional)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
