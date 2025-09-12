@@ -1,14 +1,14 @@
 @font-face {
   font-family: var(--font-montserrat);
-  src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Quicksand", sans-serif;
-  src: url('./fonts/Quicksand-VariableFont_wght.ttf') format('ttf');
+  font-family: "Quicksand";
+  src: url('./fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

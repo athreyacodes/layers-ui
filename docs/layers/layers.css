@@ -361,7 +361,7 @@
 }
 
 .font-quicksand {
-  font-family: var(--font-quicksand);
+  font-family: "Quicksand", sans-serif;
 }
 
 .font-montserrat {
@@ -404,8 +404,16 @@
   font-weight: 400;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .font-bold {
   font-weight: 700;
+}
+
+.font-bolder {
+  font-weight: 900;
 }
 
 .text-left {
@@ -591,14 +599,14 @@ body {
 
 @font-face {
   font-family: var(--font-montserrat);
-  src: url("./fonts/Montserrat-VariableFont_wght.ttf") format("ttf");
+  src: url("./fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: var(--font-quicksand);
-  src: url("./fonts/Quicksand-VariableFont_wght.ttf") format("ttf");
+  font-family: "Quicksand";
+  src: url("./fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

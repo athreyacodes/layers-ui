@@ -24,7 +24,7 @@
     "build-all": "npm run build:scss && npm run build:scss:min && npm run build:css && npm run build:css:min",
 
     "copy:dist": "mkdir -p dist/fonts && cp src/fonts/* dist/fonts/",
-    "copy:docs": "mkdir -p docs/layers && cp dist/layers.css docs/layers/layers.css && mkdir -p docs/fonts && cp dist/fonts/* docs/fonts/",
+    "copy:docs": "mkdir -p docs/layers && cp dist/layers.css docs/layers/layers.css && mkdir -p docs/layers/fonts && cp dist/fonts/* docs/layers/fonts/",
     "copy-all": "npm run copy:dist && npm run copy:docs",
 
     "build": "npm run clean-all && npm run build-all && npm run copy-all",

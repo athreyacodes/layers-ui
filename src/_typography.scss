@@ -1,5 +1,5 @@
 // Font families
-.font-quicksand { font-family: var(--font-quicksand); }
+.font-quicksand { font-family: "Quicksand", sans-serif; }
 .font-montserrat { font-family: var(--font-montserrat); }
 .font-sans { font-family: var(--font-sans); }
 .font-serif { font-family: var(--font-serif); }
@@ -14,7 +14,9 @@
 // Font weight
 .font-light { font-weight: 300; }
 .font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
 .font-bold { font-weight: 700; }
+.font-bolder { font-weight: 900; }
 
 // Alignment
 .text-left { text-align: left; }
