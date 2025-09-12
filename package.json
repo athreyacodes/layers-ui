@@ -16,7 +16,8 @@
     "build:scss:min": "sass src/index.scss dist/layers.min.css --style=compressed",
     "build:css": "postcss dist/layers.css -o dist/layers.css",
     "build:css:min": "postcss dist/layers.min.css -o dist/layers.min.css",
-    "build": "npm run build:scss && npm run build:scss:min && npm run build:css && npm run build:css:min",
+    "copy:docs": "cp dist/layers.css docs/layers.css && cp dist/layers.min.css docs/layers.min.css && cp dist/layers.css.map docs/layers.css.map && cp dist/layers.min.css.map docs/layers.min.css.map",
+    "build": "npm run build:scss && npm run build:scss:min && npm run build:css && npm run build:css:min && npm run copy:docs",
     "watch": "sass --watch src/index.scss dist/layers.css"
   },
   "repository": {
