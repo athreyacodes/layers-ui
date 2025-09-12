@@ -1,6 +1,9 @@
 :root {
   /* Colors */
-  --primary-color: #007bff;
+  --primary-color: #008080;
+  --primary-translucent-color: #AFCBCC;
+  --primary-transparent-color: #00808040;
+
   --secondary-color: #6c757d;
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -20,6 +23,8 @@
   --space-5: 4rem;
 
   /* Typography */
+  --font-quicksand: "Quicksand";
+  --font-montserrat: "Montserrat";
   --font-sans: "Helvetica Neue", Arial, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
   --font-mono: "Courier New", monospace;

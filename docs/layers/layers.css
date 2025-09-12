@@ -1,6 +1,8 @@
 :root {
   /* Colors */
-  --primary-color: #007bff;
+  --primary-color: #008080;
+  --primary-translucent-color: #AFCBCC;
+  --primary-transparent-color: #00808040;
   --secondary-color: #6c757d;
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -18,6 +20,8 @@
   --space-4: 2rem;
   --space-5: 4rem;
   /* Typography */
+  --font-quicksand: "Quicksand";
+  --font-montserrat: "Montserrat";
   --font-sans: "Helvetica Neue", Arial, sans-serif;
   --font-serif: Georgia, "Times New Roman", serif;
   --font-mono: "Courier New", monospace;
@@ -328,12 +332,40 @@
   align-items: flex-end;
 }
 
+.d-gap-1 {
+  gap: var(--space-1);
+}
+
+.d-gap-2 {
+  gap: var(--space-2);
+}
+
+.d-gap-3 {
+  gap: var(--space-3);
+}
+
+.d-gap-4 {
+  gap: var(--space-4);
+}
+
+.d-gap-5 {
+  gap: var(--space-5);
+}
+
 .w-full {
   width: 100%;
 }
 
 .h-full {
   height: 100%;
+}
+
+.font-quicksand {
+  font-family: var(--font-quicksand);
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
 }
 
 .font-sans {
@@ -398,6 +430,10 @@
 
 .capitalize {
   text-transform: capitalize;
+}
+
+.text-wide {
+  letter-spacing: 0.1em;
 }
 
 .bg-primary {
@@ -547,6 +583,25 @@
 body {
   background: var(--body-bg);
   color: var(--body-text);
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: var(--font-montserrat);
+  src: url("./fonts/Montserrat-VariableFont_wght.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: var(--font-quicksand);
+  src: url("./fonts/Quicksand-VariableFont_wght.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /*# sourceMappingURL=layers.css.map */

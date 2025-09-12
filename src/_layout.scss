@@ -33,6 +33,12 @@ $spacings: (0, 1, 2, 3, 4, 5);
 .items-center { align-items: center; }
 .items-end { align-items: flex-end; }
 
+.d-gap-1 { gap: var(--space-1); }
+.d-gap-2 { gap: var(--space-2); }
+.d-gap-3 { gap: var(--space-3); }
+.d-gap-4 { gap: var(--space-4); }
+.d-gap-5 { gap: var(--space-5); }
+
 // Sizing
 .w-full { width: 100%; }
 .h-full { height: 100%; }

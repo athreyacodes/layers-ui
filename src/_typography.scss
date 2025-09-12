@@ -1,4 +1,6 @@
 // Font families
+.font-quicksand { font-family: var(--font-quicksand); }
+.font-montserrat { font-family: var(--font-montserrat); }
 .font-sans { font-family: var(--font-sans); }
 .font-serif { font-family: var(--font-serif); }
 .font-mono { font-family: var(--font-mono); }
@@ -23,3 +25,7 @@
 .uppercase { text-transform: uppercase; }
 .lowercase { text-transform: lowercase; }
 .capitalize { text-transform: capitalize; }
+
+.text-wide {
+  letter-spacing: 0.1em;
+}
