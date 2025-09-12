@@ -3,6 +3,10 @@
   --primary-color: #008080;
   --primary-translucent-color: #AFCBCC;
   --primary-transparent-color: #00808040;
+  --body-bg: #EEEEEE;
+  --bg-color: #EEEEEE;
+  --bg-light: #00808033;
+  --bg-overlay: transparent;
   --secondary-color: #6c757d;
   --success-color: #28a745;
   --danger-color: #dc3545;
@@ -10,7 +14,6 @@
   --info-color: #17a2b8;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
-  --body-bg: #ffffff;
   --body-text: #212529;
   /* Spacing scale */
   --space-0: 0;
@@ -610,6 +613,85 @@ body {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+.wave-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1000;
+}
+
+.wave-container .wave {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 110%;
+  background: var(--primary-color);
+  box-shadow: inset 0 0 50px var(--primary-transparent-color);
+  transition: 1s;
+  z-index: -1000;
+}
+
+.wave-container .wave.blur {
+  filter: blur(10px);
+}
+
+.wave-container .wave span {
+  content: "";
+  position: absolute;
+  width: 500vh;
+  height: 500vh;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  background: var(--bg-color);
+  z-index: -1000;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.wave-container .wave span:nth-child(1) {
+  border-radius: 45%;
+  background: rgb(255, 255, 255);
+  animation: animate 10s linear infinite;
+}
+
+.wave-container .wave span:nth-child(2) {
+  border-radius: 40%;
+  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  box-shadow: inset 0 0 0 1000px var(--bg-overlay);
+  animation: waveanimate 20s linear infinite;
+}
+
+.wave-container .wave span:nth-child(3) {
+  border-radius: 42.5%;
+  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  box-shadow: inset 0 0 0 1000px var(--bg-overlay);
+  animation: waveanimate 30s linear infinite;
+}
+
+@keyframes waveanimate {
+  0% {
+    transform: translate(-50%, -85%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -85%) rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=layers.css.map */
