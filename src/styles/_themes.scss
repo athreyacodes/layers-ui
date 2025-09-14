@@ -1,0 +1,38 @@
+
+
+@mixin light-theme {
+  --primary-color: #008080;
+  --primary-translucent-color: #AFCBCC;
+  --primary-transparent-color: #00808040;
+  --secondary-color: #EEEEEE;
+  --bg-color: #EEEEEE;
+  --bg-light: #00808033;
+  --bg-transparent: transparent;
+}
+
+@mixin dark-theme {
+  --primary-color: #008080;
+  --primary-translucent-color: #AFCBCC;
+  --primary-transparent-color: #00808040;
+  --secondary-color: #555555;
+  --bg-color: #1a1a1a;
+  --bg-light: #1a1a1a33;
+  --bg-transparent: transparent;
+}
+
+// Default theme - light theme
+:root {
+  @include light-theme;  
+}
+
+// Dark theme
+.color-scheme-dark {
+  @include dark-theme;
+}
+
+// Auto theme based on system preference
+@media (prefers-color-scheme: dark) {
+  .auto {
+    @include dark-theme;
+  }
+}

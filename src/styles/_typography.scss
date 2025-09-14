@@ -1,9 +1,6 @@
 // Font families
-.font-quicksand { font-family: "Quicksand", sans-serif; }
+.font-quicksand { font-family: var(--font-quicksand); }
 .font-montserrat { font-family: var(--font-montserrat); }
-.font-sans { font-family: var(--font-sans); }
-.font-serif { font-family: var(--font-serif); }
-.font-mono { font-family: var(--font-mono); }
 
 // Font sizes
 .text-sm { font-size: var(--font-sm); }
@@ -30,4 +27,10 @@
 
 .text-wide {
   letter-spacing: 0.1em;
+}
+
+body {
+  font-family: var(--font-quicksand);
+  font-size: var(--font-base);
+  font-weight: 400;
 }

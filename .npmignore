@@ -1,4 +1,14 @@
-src/
-docs/
-node_modules/
-*.log
+# Ignore everything
+*
+
+# Keep only what we want
+!package.json
+
+!layers.css
+!layers.css.map
+
+!layers.min.css
+!layers.min.css.map
+
+!fonts/
+!fonts/*.ttf

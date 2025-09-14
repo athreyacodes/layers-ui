@@ -42,3 +42,25 @@ $spacings: (0, 1, 2, 3, 4, 5);
 // Sizing
 .w-full { width: 100%; }
 .h-full { height: 100%; }
+.min-h-full { min-height: 100%; }
+.min-w-full { min-width: 100%; }
+
+.w-vw { width: 100vw; }
+.h-vh { height: 100vh; }
+.min-h-vh { min-height: 100vh; }
+.min-w-vw { min-width: 100vw; }
+
+.w-svw { width: 100svw; }
+.h-svh { height: 100svh; }
+.min-h-svh { min-height: 100svh; }
+.min-w-svw { min-width: 100svw; }
+
+.w-dvw { width: 100dvw; }
+.h-dvh { height: 100dvh; }
+.min-h-dvh { min-height: 100dvh; }
+.min-w-dvw { min-width: 100dvw; }
+
+.w-lvw { width: 100lvw; }
+.h-lvh { height: 100lvh; }
+.min-h-lvh { min-height: 100lvh; }
+.min-w-lvw { min-width: 100lvw; }
