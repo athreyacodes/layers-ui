@@ -697,5 +697,92 @@
     transform: translate(-50%, -85%) rotate(360deg);
   }
 }
+/* 3 Waves Background Style */
+/* Use HTML block as 
+<div class="wave3-container">
+    <div> 
+        <span /> <span /> <span />
+    </div> 
+</div>
+*/
+.wave3-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1000;
+}
+
+.wave3-container div {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 110%;
+  background: var(--primary-color);
+  box-shadow: inset 0 0 50px var(--primary-transparent-color);
+  transition: 1s;
+  z-index: -1000;
+}
+
+.wave3-container div.blur {
+  filter: blur(10px);
+}
+
+.wave3-container div span {
+  content: "";
+  position: absolute;
+  width: 500vh;
+  height: 500vh;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  background: var(--bg-color);
+  z-index: -1000;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.wave3-container div span:nth-child(1) {
+  border-radius: 45%;
+  background: rgb(255, 255, 255);
+  animation: animate 10s linear infinite;
+}
+
+.wave3-container div span:nth-child(2) {
+  border-radius: 40%;
+  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  box-shadow: inset 0 0 0 1000px var(--bg-overlay);
+  animation: waveanimate 20s linear infinite;
+}
+
+.wave3-container div span:nth-child(3) {
+  border-radius: 42.5%;
+  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  box-shadow: inset 0 0 0 1000px var(--bg-overlay);
+  animation: waveanimate 30s linear infinite;
+}
+
+@keyframes waveanimate {
+  0% {
+    transform: translate(-50%, -85%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -85%) rotate(360deg);
+  }
+}
 
 /*# sourceMappingURL=layers.css.map */
