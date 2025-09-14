@@ -1,6 +1,6 @@
 {
   "name": "layers-ui",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A lightweight utility-first CSS library with theming support",
   "main": "layers.min.css",
   "style": "layers.min.css",
