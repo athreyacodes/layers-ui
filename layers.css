@@ -810,5 +810,121 @@ Use like this
     transform: translate(-50%, -85%) rotate(360deg);
   }
 }
+.layers-icon-container .layer-icon-group {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+.layers-icon-container .layer-icon-group.small {
+  width: 36px;
+  height: 36px;
+}
+.layers-icon-container .layer-icon-group.large {
+  width: 200px;
+  height: 200px;
+}
+.layers-icon-container .layer-icon-group > .layer {
+  background: var(--primary-color);
+  width: inherit;
+  height: inherit;
+  border-radius: 20%;
+  position: absolute;
+  left: 0;
+  transform: rotateX(60deg) rotateZ(45deg);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+.layers-icon-container .layer-icon-group > .layer1 {
+  background: var(--primary-color);
+  top: 0;
+  z-index: 3;
+}
+.layers-icon-container .layer-icon-group > .layer2 {
+  background: var(--primary-translucent-color);
+  top: 20%;
+  z-index: 2;
+}
+.layers-icon-container .layer-icon-group > .layer3 {
+  background: var(--primary-color);
+  top: 40%;
+  z-index: 1;
+}
+.layers-icon-container .layer-icon-group.animate {
+  opacity: 0;
+  animation: visible 800ms ease 200ms forwards;
+}
+.layers-icon-container .layer-icon-group.animate > .layer {
+  opacity: 1;
+}
+.layers-icon-container .layer-icon-group.animate > .layer1 {
+  transform: translateY(20%) rotateX(60deg) rotateZ(45deg);
+  animation: move1 1000ms cubic-bezier(0.8, 0, 0.3, 1) 1000ms forwards;
+}
+.layers-icon-container .layer-icon-group.animate > .layer2 {
+  animation: move2 1000ms cubic-bezier(0.8, 0, 0.3, 1) 1000ms forwards;
+}
+.layers-icon-container .layer-icon-group.animate > .layer3 {
+  transform: translateY(-20%) rotateX(60deg) rotateZ(45deg);
+  animation: move3 1000ms cubic-bezier(0.8, 0, 0.3, 1) 1000ms forwards;
+}
+.layers-icon-container .layer-icon-group.title-icon {
+  flex-shrink: 0;
+}
+.layers-icon-container .title-text-wrapper {
+  overflow: hidden; /* acts like a mask */
+}
+.layers-icon-container .title-text {
+  opacity: 0;
+  animation: slideIn 800ms ease-in 1200ms forwards;
+  white-space: nowrap;
+  display: inline-block;
+  font-size: 48px;
+  color: var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+/* Animations */
+@keyframes visible {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes move1 {
+  0% {
+    transform: translateY(20%) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+}
+@keyframes move2 {
+  0% {
+    transform: translateY(0) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+}
+@keyframes move3 {
+  0% {
+    transform: translateY(-20%) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotateX(60deg) rotateZ(45deg);
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  to {
+    opacity: 1;
+  }
+}
 
 /*# sourceMappingURL=layers.css.map */
