@@ -1,3 +1,13 @@
+/**
+2 wave background style
+1 line html
+
+Use like this
+
+  <div class="background wave"></div>
+*/
+
+
 .background.wave {
     position: fixed;
     top: 0;
@@ -44,8 +54,12 @@
     z-index: -1000;
   }
 
-  .background.wave.blur {
-    filter: blur(5px);
+  .background.wave.slow::before {
+    animation: animate 30s linear infinite;
+  }
+
+  .background.wave.slow::after {
+    animation: animate 90s linear infinite;
   }
   
   /* Animations */
