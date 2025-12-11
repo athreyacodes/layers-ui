@@ -713,7 +713,9 @@ Use like this
 /* Use HTML block as 
 <div class="wave3-container">
     <div> 
-        <span /> <span /> <span />
+        <span></span>
+        <span></span>
+        <span></span>
     </div> 
 </div>
 */
