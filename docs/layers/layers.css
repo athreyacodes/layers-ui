@@ -597,6 +597,7 @@
 
 :root {
   --primary-color: #008080;
+  --primary-dark: #008080;
   --primary-translucent-color: #AFCBCC;
   --primary-transparent-color: #00808040;
   --secondary-color: #EEEEEE;
@@ -607,22 +608,24 @@
 
 .color-scheme-dark {
   --primary-color: #008080;
-  --primary-translucent-color: #AFCBCC;
+  --primary-dark: #0d3a3c;
+  --primary-translucent-color: #0d3a3c;
   --primary-transparent-color: #00808040;
   --secondary-color: #555555;
   --bg-color: #1a1a1a;
-  --bg-light: #008080ee;
+  --bg-light: #00808033;
   --bg-transparent: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   .auto {
     --primary-color: #008080;
-    --primary-translucent-color: #AFCBCC;
+    --primary-dark: #0d3a3c;
+    --primary-translucent-color: #0d3a3c;
     --primary-transparent-color: #00808040;
     --secondary-color: #555555;
     --bg-color: #1a1a1a;
-    --bg-light: #008080ee;
+    --bg-light: #00808033;
     --bg-transparent: transparent;
   }
 }
@@ -738,7 +741,7 @@ Use like this
   left: -10%;
   width: 120%;
   height: 110%;
-  background: var(--primary-color);
+  background: var(--primary-dark);
   box-shadow: inset 0 0 50px var(--primary-transparent-color);
   transition: 1s;
   z-index: -1000;
@@ -772,20 +775,20 @@ Use like this
 
 .wave3-container div span:nth-child(1) {
   border-radius: 45%;
-  background: var(--secondary-color);
+  background: var(--primary-dark);
   animation: animate 10s linear infinite;
 }
 
 .wave3-container div span:nth-child(2) {
   border-radius: 40%;
-  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  background: radial-gradient(circle, var(--primary-dark) 0%, var(--bg-color) 100%);
   box-shadow: inset 0 0 0 1000px var(--bg-transparent);
   animation: waveanimate 20s linear infinite;
 }
 
 .wave3-container div span:nth-child(3) {
   border-radius: 42.5%;
-  background: radial-gradient(circle, var(--bg-light) 0%, var(--bg-color) 100%);
+  background: radial-gradient(circle, var(--primary-dark) 0%, var(--bg-color) 100%);
   box-shadow: inset 0 0 0 1000px var(--bg-transparent);
   animation: waveanimate 30s linear infinite;
 }

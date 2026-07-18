@@ -1,5 +1,6 @@
 @mixin light-theme {
   --primary-color: #008080;
+  --primary-dark: #008080;
   --primary-translucent-color: #AFCBCC;
   --primary-transparent-color: #00808040;
   --secondary-color: #EEEEEE;
@@ -10,11 +11,12 @@
 
 @mixin dark-theme {
   --primary-color: #008080;
-  --primary-translucent-color: #AFCBCC;
+  --primary-dark: #0d3a3c;
+  --primary-translucent-color: #0d3a3c;
   --primary-transparent-color: #00808040;
   --secondary-color: #555555;
   --bg-color: #1a1a1a;
-  --bg-light: #008080ee;
+  --bg-light: #00808033;
   --bg-transparent: transparent;
 }
 
