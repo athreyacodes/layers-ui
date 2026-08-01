@@ -717,16 +717,24 @@ Use like this
     transform: translate(-50%, -85%) rotate(360deg);
   }
 }
-/* 3 Waves Background Style */
-/* Use HTML block as 
-<div class="wave3-container">
-    <div> 
-        <span></span>
-        <span></span>
-        <span></span>
-    </div> 
-</div>
-*/
+/* 3 Waves Background Style
+ *
+ * Preferred markup (soft edge without WebKit dark fringe):
+ * <div class="wave3-container">
+ *   <div class="wave3-sea"></div>
+ *   <div class="wave3-sky blur slow">
+ *     <span></span>
+ *     <span></span>
+ *     <span></span>
+ *   </div>
+ * </div>
+ *
+ * Softness comes from blurring the sky masks (opaque → transparent),
+ * not from blurring mask + sea colors together (that creates Safari halos).
+ *
+ * Legacy markup (spans inside one blurred wrapper) still works, with a
+ * dark-mode contrast crush to reduce the light fringe.
+ */
 .wave3-container {
   position: fixed;
   top: 0;
@@ -743,7 +751,7 @@ Use like this
   pointer-events: none;
 }
 
-.wave3-container div {
+.wave3-container > .wave3-sea {
   position: absolute;
   left: -15%;
   width: 130%;
@@ -754,12 +762,37 @@ Use like this
   z-index: -1000;
 }
 
-.wave3-container div.blur {
+.wave3-container > div:not(.wave3-sky):not(.wave3-sea) {
+  position: absolute;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  background: var(--wave-color);
+  box-shadow: inset 0 0 50px var(--primary-transparent-color);
+  transition: 1s;
+  z-index: -1000;
+}
+
+.wave3-container > .wave3-sky {
+  position: absolute;
+  inset: -48px;
+  z-index: -999;
+}
+
+.wave3-container > .wave3-sky.blur {
+  filter: blur(12px);
+}
+
+.wave3-container > div.blur:not(.wave3-sky):not(.wave3-sea) {
   filter: blur(7px);
 }
 
-.wave3-container div span {
-  content: "";
+.color-scheme-dark .wave3-container > div.blur:not(.wave3-sky):not(.wave3-sea) {
+  filter: blur(7px) contrast(1.45) brightness(0.82);
+}
+
+.wave3-container > .wave3-sky span,
+.wave3-container > div:not(.wave3-sea):not(.wave3-sky) span {
   position: absolute;
   width: 500vh;
   height: 500vh;
@@ -767,7 +800,7 @@ Use like this
   left: 50%;
   transform: translate(-50%, -85%);
   background: var(--bg-color);
-  z-index: -1000;
+  z-index: -999;
 }
 
 .content {
@@ -780,38 +813,62 @@ Use like this
   overflow: hidden;
 }
 
-.wave3-container div span:nth-child(1) {
+.wave3-container > .wave3-sky span:nth-child(1) {
   border-radius: 45%;
   background: var(--secondary-color);
   animation: animate 6s linear infinite;
 }
 
-.wave3-container div span:nth-child(2) {
+.wave3-container > .wave3-sky span:nth-child(2) {
+  border-radius: 40%;
+  background: var(--bg-color);
+  animation: waveanimate 12s linear infinite;
+}
+
+.wave3-container > .wave3-sky span:nth-child(3) {
+  border-radius: 42.5%;
+  background: var(--bg-color);
+  animation: waveanimate 18s linear infinite;
+}
+
+.color-scheme-dark .wave3-container > .wave3-sky span:nth-child(1) {
+  background: var(--bg-color);
+}
+
+.wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
+  border-radius: 45%;
+  background: var(--secondary-color);
+  animation: animate 6s linear infinite;
+}
+
+.wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(2) {
   border-radius: 40%;
   background: radial-gradient(circle, var(--wave-color) 0%, var(--bg-color) 100%);
   animation: waveanimate 12s linear infinite;
 }
 
-.wave3-container div span:nth-child(3) {
+.wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(3) {
   border-radius: 42.5%;
   background: radial-gradient(circle, var(--wave-color) 0%, var(--bg-color) 100%);
   animation: waveanimate 18s linear infinite;
 }
 
-/* Dark mode: secondary is a light text color — keep upper wave on the surface */
-.color-scheme-dark .wave3-container div span:nth-child(1) {
+.color-scheme-dark .wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
   background: var(--bg-color);
 }
 
-.wave3-container div.slow span:nth-child(1) {
+.wave3-container > .wave3-sky.slow span:nth-child(1),
+.wave3-container > div.slow:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
   animation: animate 20s linear infinite;
 }
 
-.wave3-container div.slow span:nth-child(2) {
+.wave3-container > .wave3-sky.slow span:nth-child(2),
+.wave3-container > div.slow:not(.wave3-sea):not(.wave3-sky) span:nth-child(2) {
   animation: animate 40s linear infinite;
 }
 
-.wave3-container div.slow span:nth-child(3) {
+.wave3-container > .wave3-sky.slow span:nth-child(3),
+.wave3-container > div.slow:not(.wave3-sea):not(.wave3-sky) span:nth-child(3) {
   animation: animate 60s linear infinite;
 }
 
