@@ -4,11 +4,12 @@
   --primary-color: #156064;
   --primary-translucent-color: #afc5c6;
   --primary-transparent-color: #15606440;
-  --secondary-color: #fafafa;
+  --secondary-color: #eeeeee;
   /* Background colors */
-  --bg-color: #fafafa;
+  --bg-color: #eeeeee;
   --bg-light: #15606433;
   --bg-transparent: transparent;
+  --wave-color: #b8cfd0;
   /* Spacing scale */
   --space-0: 0;
   --space-1: 0.25rem;
@@ -601,10 +602,11 @@
   --primary-dark: #156064;
   --primary-translucent-color: #afc5c6;
   --primary-transparent-color: #15606440;
-  --secondary-color: #fafafa;
-  --bg-color: #fafafa;
+  --secondary-color: #eeeeee;
+  --bg-color: #eeeeee;
   --bg-light: #15606433;
   --bg-transparent: transparent;
+  --wave-color: #b8cfd0;
 }
 
 .color-scheme-dark {
@@ -616,6 +618,7 @@
   --bg-color: #121212;
   --bg-light: #15606433;
   --bg-transparent: transparent;
+  --wave-color: #0d3a3c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -628,6 +631,7 @@
     --bg-color: #121212;
     --bg-light: #15606433;
     --bg-transparent: transparent;
+    --wave-color: #0d3a3c;
   }
 }
 .c-pointer {
@@ -742,14 +746,14 @@ Use like this
   left: -10%;
   width: 120%;
   height: 110%;
-  background: var(--primary-dark);
+  background: var(--wave-color);
   box-shadow: inset 0 0 50px var(--primary-transparent-color);
   transition: 1s;
   z-index: -1000;
 }
 
 .wave3-container div.blur {
-  filter: blur(10px);
+  filter: blur(7px);
 }
 
 .wave3-container div span {
@@ -776,34 +780,39 @@ Use like this
 
 .wave3-container div span:nth-child(1) {
   border-radius: 45%;
-  background: var(--primary-dark);
-  animation: animate 10s linear infinite;
+  background: var(--secondary-color);
+  animation: animate 6s linear infinite;
 }
 
 .wave3-container div span:nth-child(2) {
   border-radius: 40%;
-  background: radial-gradient(circle, var(--primary-dark) 0%, var(--bg-color) 100%);
+  background: radial-gradient(circle, var(--wave-color) 0%, var(--bg-color) 100%);
   box-shadow: inset 0 0 0 1000px var(--bg-transparent);
-  animation: waveanimate 20s linear infinite;
+  animation: waveanimate 12s linear infinite;
 }
 
 .wave3-container div span:nth-child(3) {
   border-radius: 42.5%;
-  background: radial-gradient(circle, var(--primary-dark) 0%, var(--bg-color) 100%);
+  background: radial-gradient(circle, var(--wave-color) 0%, var(--bg-color) 100%);
   box-shadow: inset 0 0 0 1000px var(--bg-transparent);
-  animation: waveanimate 30s linear infinite;
+  animation: waveanimate 18s linear infinite;
+}
+
+/* Dark mode: secondary is a light text color — keep upper wave on the surface */
+.color-scheme-dark .wave3-container div span:nth-child(1) {
+  background: var(--bg-color);
 }
 
 .wave3-container div.slow span:nth-child(1) {
-  animation: animate 30s linear infinite;
+  animation: animate 20s linear infinite;
 }
 
 .wave3-container div.slow span:nth-child(2) {
-  animation: animate 60s linear infinite;
+  animation: animate 40s linear infinite;
 }
 
 .wave3-container div.slow span:nth-child(3) {
-  animation: animate 90s linear infinite;
+  animation: animate 60s linear infinite;
 }
 
 @keyframes waveanimate {
