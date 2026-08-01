@@ -1,13 +1,13 @@
 :root {
-  /* Colors */
-  --primary-color: #008080;
-  --primary-translucent-color: #AFCBCC;
-  --primary-transparent-color: #00808040;
-  --secondary-color: #EEEEEE;
+  /* Colors — aligned with original portfolio accent/card teal */
+  --primary-color: #156064;
+  --primary-translucent-color: #afc5c6;
+  --primary-transparent-color: #15606440;
+  --secondary-color: #ffffff;
 
   /* Background colors */
-  --bg-color: #EEEEEE;
-  --bg-light: #00808033;
+  --bg-color: #fafafa;
+  --bg-light: #15606433;
   --bg-transparent: transparent;
 
   /* Spacing scale */
@@ -38,5 +38,3 @@
   --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
   --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
 }
-
-
