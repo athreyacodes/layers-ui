@@ -615,10 +615,10 @@
   --primary-translucent-color: #0d3a3c;
   --primary-transparent-color: #15606440;
   --secondary-color: #f5f5f5;
-  --bg-color: #121212;
+  --bg-color: #050505;
   --bg-light: #15606433;
   --bg-transparent: transparent;
-  --wave-color: #0d3a3c;
+  --wave-color: #041516;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -628,10 +628,10 @@
     --primary-translucent-color: #0d3a3c;
     --primary-transparent-color: #15606440;
     --secondary-color: #f5f5f5;
-    --bg-color: #121212;
+    --bg-color: #050505;
     --bg-light: #15606433;
     --bg-transparent: transparent;
-    --wave-color: #0d3a3c;
+    --wave-color: #041516;
   }
 }
 .c-pointer {
