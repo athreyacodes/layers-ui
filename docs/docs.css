@@ -1,0 +1,260 @@
+/* Docs-only. Not part of the published layers-ui package. */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("layers/fonts/montserrat.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("layers/fonts/quicksand.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+}
+
+.docs-hero {
+  position: relative;
+  width: 100%;
+}
+
+.docs-scroll-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-top: 1.25rem;
+  opacity: 0;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+}
+
+.docs-ready .docs-scroll-cue {
+  opacity: 0.85;
+}
+
+.docs-scroll-cue svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  animation: docs-arrow-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes docs-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.docs {
+  position: relative;
+  z-index: 1;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+  color: var(--primary-color);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.docs-ready .docs {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.docs-surface {
+  background: color-mix(in srgb, var(--bg-color) 72%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--primary-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--primary-transparent-color);
+  padding: 2rem;
+}
+
+.docs-section + .docs-section {
+  margin-top: 1.5rem;
+}
+
+.docs-kicker {
+  margin: 0 0 0.75rem;
+}
+
+.docs-install {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--primary-transparent-color);
+}
+
+.docs-install code {
+  flex: 1;
+  min-width: 0;
+  color: var(--primary-color);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  overflow-x: auto;
+}
+
+.docs-copy {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.docs-copy:hover,
+.docs-copy:focus-visible {
+  background: var(--primary-transparent-color);
+}
+
+.docs-copy:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.docs-copy svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.docs-copy.is-copied svg {
+  stroke-width: 2.5;
+}
+
+.docs-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.75rem;
+}
+
+.docs-swatch {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--primary-transparent-color);
+}
+
+.docs-swatch-chip {
+  height: 3.25rem;
+}
+
+.docs-swatch-label {
+  display: block;
+  padding: 0.5rem 0.6rem;
+  background: color-mix(in srgb, var(--bg-color) 80%, transparent);
+}
+
+.docs-cards,
+.docs-theme-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.docs-cards {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.docs-theme-row {
+  grid-template-columns: 1fr 1fr;
+}
+
+.docs-theme-preview {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-transparent-color);
+}
+
+.docs-theme-light {
+  --primary-color: #156064;
+  --primary-dark: #156064;
+  --primary-translucent-color: #afc5c6;
+  --primary-transparent-color: #15606440;
+  --secondary-color: #eeeeee;
+  --bg-color: #eeeeee;
+  --bg-light: #15606433;
+  --bg-transparent: transparent;
+  --wave-color: #b8cfd0;
+}
+
+.docs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.docs-chip {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--primary-transparent-color);
+}
+
+.docs-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .docs-theme-row {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-surface {
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .docs,
+  .docs-scroll-cue {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .docs-scroll-cue svg {
+    animation: none;
+  }
+}
