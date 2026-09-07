@@ -200,16 +200,26 @@ body {
   border: 1px solid var(--primary-transparent-color);
 }
 
-.docs-theme-light {
-  --primary-color: #156064;
-  --primary-dark: #156064;
-  --primary-translucent-color: #afc5c6;
-  --primary-transparent-color: #15606440;
-  --secondary-color: #eeeeee;
-  --bg-color: #eeeeee;
-  --bg-light: #15606433;
-  --bg-transparent: transparent;
-  --wave-color: #b8cfd0;
+.docs-code {
+  display: block;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  background: var(--primary-transparent-color);
+  color: var(--primary-color);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.docs-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.docs-list li + li {
+  margin-top: 0.35rem;
 }
 
 .docs-chips {

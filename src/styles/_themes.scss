@@ -1,40 +1,168 @@
-@mixin light-theme {
-  --primary-color: #156064;
-  --primary-dark: #156064;
-  --primary-translucent-color: #afc5c6;
-  --primary-transparent-color: #15606440;
+@use 'sass:map';
+
+@mixin surfaces-light {
   --secondary-color: #eeeeee;
   --bg-color: #eeeeee;
-  --bg-light: #15606433;
   --bg-transparent: transparent;
-  --wave-color: #b8cfd0;
+  color-scheme: light;
 }
 
-@mixin dark-theme {
-  --primary-color: #156064;
-  --primary-dark: #0d3a3c;
-  --primary-translucent-color: #0d3a3c;
-  --primary-transparent-color: #15606440;
+@mixin surfaces-dark {
   --secondary-color: #f5f5f5;
   --bg-color: #050505;
-  --bg-light: #15606433;
   --bg-transparent: transparent;
-  --wave-color: #041516;
+  color-scheme: dark;
 }
 
-// Default theme - light theme
+@mixin primary-tokens($tokens) {
+  --primary-color: #{map.get($tokens, primary)};
+  --primary-dark: #{map.get($tokens, primary-dark)};
+  --primary-translucent-color: #{map.get($tokens, translucent)};
+  --primary-transparent-color: #{map.get($tokens, transparent)};
+  --bg-light: #{map.get($tokens, bg-light)};
+  --wave-color: #{map.get($tokens, wave)};
+}
+
+$teal-light: (
+  primary: #156064,
+  primary-dark: #156064,
+  translucent: #afc5c6,
+  transparent: #15606440,
+  bg-light: #15606433,
+  wave: #b8cfd0,
+);
+
+$teal-dark: (
+  primary: #156064,
+  primary-dark: #0d3a3c,
+  translucent: #0d3a3c,
+  transparent: #15606440,
+  bg-light: #15606433,
+  wave: #041516,
+);
+
+$indigo-light: (
+  primary: #352e78,
+  primary-dark: #352e78,
+  translucent: #b8b6cc,
+  transparent: #352e7840,
+  bg-light: #352e7833,
+  wave: #c0bed1,
+);
+
+$indigo-dark: (
+  primary: #352e78,
+  primary-dark: #201c48,
+  translucent: #201c48,
+  transparent: #352e7840,
+  bg-light: #352e7833,
+  wave: #0b0918,
+);
+
+$blue-light: (
+  primary: #1e4d8c,
+  primary-dark: #1e4d8c,
+  translucent: #b2bfd2,
+  transparent: #1e4d8c40,
+  bg-light: #1e4d8c33,
+  wave: #bac6d6,
+);
+
+$blue-dark: (
+  primary: #1e4d8c,
+  primary-dark: #122e54,
+  translucent: #122e54,
+  transparent: #1e4d8c40,
+  bg-light: #1e4d8c33,
+  wave: #060f1c,
+);
+
+$rose-light: (
+  primary: #9c3d55,
+  primary-dark: #9c3d55,
+  translucent: #d6bbc2,
+  transparent: #9c3d5540,
+  bg-light: #9c3d5533,
+  wave: #dac2c8,
+);
+
+$rose-dark: (
+  primary: #9c3d55,
+  primary-dark: #5e2533,
+  translucent: #5e2533,
+  transparent: #9c3d5540,
+  bg-light: #9c3d5533,
+  wave: #1f0c11,
+);
+
+$palettes: (
+  "teal": (light: $teal-light, dark: $teal-dark),
+  "indigo": (light: $indigo-light, dark: $indigo-dark),
+  "blue": (light: $blue-light, dark: $blue-dark),
+  "rose": (light: $rose-light, dark: $rose-dark),
+);
+
 :root {
-  @include light-theme;
+  --theme-swatch-teal: #156064;
+  --theme-swatch-indigo: #352e78;
+  --theme-swatch-blue: #1e4d8c;
+  --theme-swatch-rose: #9c3d55;
+
+  @include surfaces-light;
+  @include primary-tokens($teal-light);
 }
 
-// Dark theme
-.color-scheme-dark {
-  @include dark-theme;
+@each $name, $modes in $palettes {
+  [data-primary='#{$name}'] {
+    @include primary-tokens(map.get($modes, light));
+  }
 }
 
-// Auto theme based on system preference
+[data-color-scheme='light'] {
+  @include surfaces-light;
+  @include primary-tokens($teal-light);
+}
+
+@each $name, $modes in $palettes {
+  [data-primary='#{$name}'][data-color-scheme='light'],
+  [data-primary='#{$name}'] [data-color-scheme='light'] {
+    @include primary-tokens(map.get($modes, light));
+  }
+}
+
+.color-scheme-dark,
+[data-color-scheme='dark'] {
+  @include surfaces-dark;
+}
+
+.color-scheme-dark:not([data-primary]),
+[data-color-scheme='dark']:not([data-primary]) {
+  @include primary-tokens($teal-dark);
+}
+
+@each $name, $modes in $palettes {
+  [data-primary='#{$name}'].color-scheme-dark,
+  [data-primary='#{$name}'] .color-scheme-dark,
+  [data-primary='#{$name}'][data-color-scheme='dark'] {
+    @include primary-tokens(map.get($modes, dark));
+  }
+}
+
 @media (prefers-color-scheme: dark) {
-  .auto {
-    @include dark-theme;
+  .auto:not([data-color-scheme='light']),
+  [data-color-scheme='system'] {
+    @include surfaces-dark;
+  }
+
+  .auto:not([data-primary]):not([data-color-scheme='light']),
+  [data-color-scheme='system']:not([data-primary]) {
+    @include primary-tokens($teal-dark);
+  }
+
+  @each $name, $modes in $palettes {
+    [data-primary='#{$name}'].auto:not([data-color-scheme='light']),
+    [data-primary='#{$name}'][data-color-scheme='system'] {
+      @include primary-tokens(map.get($modes, dark));
+    }
   }
 }

@@ -73,8 +73,14 @@
   filter: blur(7px);
 }
 
-.color-scheme-dark .wave3-container > div.blur:not(.wave3-sky):not(.wave3-sea) {
+:is(.color-scheme-dark, [data-color-scheme="dark"]) .wave3-container > div.blur:not(.wave3-sky):not(.wave3-sea) {
   filter: blur(7px) contrast(1.45) brightness(0.82);
+}
+
+@media (prefers-color-scheme: dark) {
+  :is([data-color-scheme="system"], .auto) .wave3-container > div.blur:not(.wave3-sky):not(.wave3-sea) {
+    filter: blur(7px) contrast(1.45) brightness(0.82);
+  }
 }
 
 .wave3-container > .wave3-sky span,
@@ -118,8 +124,14 @@
   animation: waveanimate 18s linear infinite;
 }
 
-.color-scheme-dark .wave3-container > .wave3-sky span:nth-child(1) {
+:is(.color-scheme-dark, [data-color-scheme="dark"]) .wave3-container > .wave3-sky span:nth-child(1) {
   background: var(--bg-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :is([data-color-scheme="system"], .auto) .wave3-container > .wave3-sky span:nth-child(1) {
+    background: var(--bg-color);
+  }
 }
 
 // Legacy span look (kept for old markup).
@@ -141,8 +153,14 @@
   animation: waveanimate 18s linear infinite;
 }
 
-.color-scheme-dark .wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
+:is(.color-scheme-dark, [data-color-scheme="dark"]) .wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
   background: var(--bg-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :is([data-color-scheme="system"], .auto) .wave3-container > div:not(.wave3-sea):not(.wave3-sky) span:nth-child(1) {
+    background: var(--bg-color);
+  }
 }
 
 .wave3-container > .wave3-sky.slow span:nth-child(1),

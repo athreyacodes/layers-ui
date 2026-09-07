@@ -3,6 +3,20 @@
 
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var p = localStorage.getItem('layers-ui-primary');
+        var s = localStorage.getItem('layers-ui-scheme');
+        if (p === 'teal' || p === 'indigo' || p === 'blue' || p === 'rose') {
+          document.documentElement.setAttribute('data-primary', p);
+        }
+        if (s === 'light' || s === 'dark' || s === 'system') {
+          document.documentElement.setAttribute('data-color-scheme', s);
+        }
+      } catch (e) { }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Layers UI — A Simple, Fast CSS utility library.</title>
   <link rel="stylesheet" href="layers/layers.css" />
@@ -17,6 +31,72 @@
       <span></span>
       <span></span>
       <span></span>
+    </div>
+  </div>
+
+  <div class="theme-toolbar" role="group" aria-label="Theme">
+    <div class="theme-picker">
+      <button type="button" class="btn-icon theme-picker-trigger" aria-expanded="false" aria-haspopup="true"
+        aria-controls="theme-primary-menu" aria-label="Primary color">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z" />
+          <path d="m5 2 5 5" />
+          <path d="M2 13h15" />
+          <path d="M22 20a2 2 0 1 1-4 0c0-1.6 1.7-2.4 2-4 .3 1.6 2 2.4 2 4Z" />
+        </svg>
+      </button>
+      <div id="theme-primary-menu" class="theme-menu theme-menu-swatches" hidden role="radiogroup"
+        aria-label="Primary color">
+        <button type="button" class="theme-swatch" data-primary="teal" role="radio" aria-checked="true"
+          aria-label="Teal"></button>
+        <button type="button" class="theme-swatch" data-primary="indigo" role="radio" aria-checked="false"
+          aria-label="Indigo"></button>
+        <button type="button" class="theme-swatch" data-primary="blue" role="radio" aria-checked="false"
+          aria-label="Blue"></button>
+        <button type="button" class="theme-swatch" data-primary="rose" role="radio" aria-checked="false"
+          aria-label="Rose"></button>
+      </div>
+    </div>
+
+    <div class="theme-picker">
+      <button type="button" class="btn-icon theme-picker-trigger theme-scheme-trigger" aria-expanded="false"
+        aria-haspopup="true" aria-controls="theme-scheme-menu" aria-label="Color scheme">
+        <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        </svg>
+        <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+        <svg class="theme-icon theme-icon-system" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M12 20v2" />
+          <path d="M16.5 7.5a6 6 0 1 0 0 9" />
+        </svg>
+      </button>
+      <div id="theme-scheme-menu" class="theme-menu theme-menu-scheme" hidden role="radiogroup" aria-label="Color scheme">
+        <button type="button" class="theme-scheme-option" data-color-scheme="system" role="radio" aria-checked="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M4.93 4.93l1.41 1.41M2 12h2M4.93 19.07l1.41-1.41M12 20v2" />
+            <path d="M16.5 7.5a6 6 0 1 0 0 9" />
+          </svg>
+          <span>System</span>
+        </button>
+        <button type="button" class="theme-scheme-option" data-color-scheme="dark" role="radio" aria-checked="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          </svg>
+          <span>Dark</span>
+        </button>
+        <button type="button" class="theme-scheme-option" data-color-scheme="light" role="radio" aria-checked="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <span>Light</span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -53,6 +133,19 @@
           </svg>
         </button>
       </div>
+    </section>
+
+    <section class="docs-section docs-surface">
+      <h2 class="text-lg font-bold mt-0 mb-3">Themes</h2>
+      <p class="text-sm mt-0 mb-3">The toolbar in the corner is the live recipe. It sets attributes on <code>&lt;html&gt;</code>; every token-backed surface on this page follows.</p>
+      <pre class="docs-code" tabindex="0"><code>&lt;html data-primary="teal" data-color-scheme="system"&gt;</code></pre>
+      <ul class="docs-list text-sm">
+        <li><code>data-primary</code>: <code>teal</code> | <code>indigo</code> | <code>blue</code> | <code>rose</code></li>
+        <li><code>data-color-scheme</code>: <code>light</code> | <code>dark</code> | <code>system</code></li>
+        <li>Markup: <code>.theme-toolbar</code> with two <code>.theme-picker</code> menus (2×2 swatches + System / Dark / Light)</li>
+        <li>Nested dark regions still use <code>.color-scheme-dark</code>. <code>.auto</code> is an alias for system.</li>
+      </ul>
+      <p class="text-sm mt-0 mb-0">layers-ui ships CSS only. Angular apps should wrap this markup — Nx apps in <code>@apps/ui</code>, how in a local header — rather than import a component from this package.</p>
     </section>
 
     <section class="docs-section docs-surface">
@@ -146,9 +239,9 @@
 
     <section class="docs-section docs-surface">
       <h2 class="text-lg font-bold mt-0 mb-3">Light and dark</h2>
-      <p class="text-sm mt-0 mb-3">The page stays light. These panels show the token swap when <code>.color-scheme-dark</code> is applied.</p>
+      <p class="text-sm mt-0 mb-3">The page follows the toolbar. These panels still show the nested class API: light is forced with <code>data-color-scheme="light"</code>, dark with <code>.color-scheme-dark</code>.</p>
       <div class="docs-theme-row">
-        <div class="docs-theme-preview docs-theme-light p-3 rounded-lg">
+        <div class="docs-theme-preview p-3 rounded-lg" data-color-scheme="light">
           <p class="text-sm font-bold uppercase text-wide mt-0 mb-2">Light</p>
           <div class="docs-chips mb-3">
             <span class="docs-chip" style="background: var(--primary-color)"></span>
@@ -158,7 +251,7 @@
           </div>
           <div class="p-3 rounded-lg shadow-md bg-primary">
             <p class="text-on-primary font-bold mt-0 mb-1">Card</p>
-            <p class="text-on-primary text-sm mt-0 mb-0">.color-scheme default</p>
+            <p class="text-on-primary text-sm mt-0 mb-0">data-color-scheme="light"</p>
           </div>
         </div>
         <div class="docs-theme-preview color-scheme-dark p-3 rounded-lg">
@@ -254,6 +347,103 @@
           }
         });
       }
+    })();
+
+    (function () {
+      var PRIMARY_KEY = 'layers-ui-primary';
+      var SCHEME_KEY = 'layers-ui-scheme';
+      var PRIMARIES = { teal: true, indigo: true, blue: true, rose: true };
+      var SCHEMES = { light: true, dark: true, system: true };
+      var root = document.documentElement;
+      var toolbar = document.querySelector('.theme-toolbar');
+      if (!toolbar) return;
+
+      function currentPrimary() {
+        return root.getAttribute('data-primary') || 'teal';
+      }
+
+      function currentScheme() {
+        return root.getAttribute('data-color-scheme') || 'light';
+      }
+
+      function persist(primary, scheme) {
+        try {
+          localStorage.setItem(PRIMARY_KEY, primary);
+          localStorage.setItem(SCHEME_KEY, scheme);
+        } catch (e) { }
+      }
+
+      function applyPrimary(primary) {
+        if (!PRIMARIES[primary]) primary = 'teal';
+        root.setAttribute('data-primary', primary);
+        toolbar.querySelectorAll('.theme-swatch').forEach(function (btn) {
+          btn.setAttribute('aria-checked', btn.getAttribute('data-primary') === primary ? 'true' : 'false');
+        });
+        persist(primary, currentScheme());
+      }
+
+      function applyScheme(scheme) {
+        if (!SCHEMES[scheme]) scheme = 'light';
+        root.setAttribute('data-color-scheme', scheme);
+        toolbar.querySelectorAll('.theme-scheme-option').forEach(function (btn) {
+          btn.setAttribute('aria-checked', btn.getAttribute('data-color-scheme') === scheme ? 'true' : 'false');
+        });
+        persist(currentPrimary(), scheme);
+      }
+
+      function closeMenus() {
+        toolbar.querySelectorAll('.theme-picker').forEach(function (picker) {
+          picker.classList.remove('is-open');
+          var trigger = picker.querySelector('.theme-picker-trigger');
+          var menu = picker.querySelector('.theme-menu');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+          if (menu) menu.hidden = true;
+        });
+      }
+
+      function togglePicker(picker) {
+        var willOpen = !picker.classList.contains('is-open');
+        closeMenus();
+        if (!willOpen) return;
+        picker.classList.add('is-open');
+        var trigger = picker.querySelector('.theme-picker-trigger');
+        var menu = picker.querySelector('.theme-menu');
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+        if (menu) menu.hidden = false;
+      }
+
+      applyPrimary(currentPrimary());
+      applyScheme(currentScheme());
+
+      toolbar.addEventListener('click', function (event) {
+        var trigger = event.target.closest('.theme-picker-trigger');
+        if (trigger) {
+          event.stopPropagation();
+          togglePicker(trigger.closest('.theme-picker'));
+          return;
+        }
+
+        var swatch = event.target.closest('.theme-swatch');
+        if (swatch) {
+          applyPrimary(swatch.getAttribute('data-primary'));
+          closeMenus();
+          return;
+        }
+
+        var scheme = event.target.closest('.theme-scheme-option');
+        if (scheme) {
+          applyScheme(scheme.getAttribute('data-color-scheme'));
+          closeMenus();
+        }
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!toolbar.contains(event.target)) closeMenus();
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeMenus();
+      });
     })();
   </script>
 </body>
