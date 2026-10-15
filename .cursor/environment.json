@@ -1,0 +1,11 @@
+{
+  "name": "layers-ui",
+  "install": ". .cursor/use-node.sh && npm ci && npm run build",
+  "terminals": [
+    {
+      "name": "sass-watch",
+      "command": ". .cursor/use-node.sh && npm run watch",
+      "description": "Watches src/ and rebuilds dist/layers.css on change (sass --watch)."
+    }
+  ]
+}
