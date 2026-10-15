@@ -26,3 +26,7 @@ Set attributes on `<html>`. Utilities, buttons, logo, and wave3 follow the CSS v
 Aliases: `.color-scheme-dark` still forces dark on a subtree. `.auto` still follows `prefers-color-scheme` (same as `system`).
 
 The docs toolbar is a CSS recipe (`.theme-toolbar`, `.theme-picker`, `.theme-menu-swatches`, `.theme-menu-scheme`) plus a few lines of JS that set those attributes and persist them. layers-ui does not ship Angular. Wrap the same markup in `@apps/ui` for Nx apps, or a local header in how.
+
+## Next
+
+Open work for this repo: [docs/next.md](docs/next.md).
